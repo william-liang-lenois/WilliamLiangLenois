@@ -1,0 +1,24 @@
+INCLUDE Irvine32.inc
+
+.data
+Rval DWORD ?
+Xval DWORD 2600
+Yval DWORD 3000
+Zval DWORD 4000
+
+.code
+
+main PROC
+	neg Xval
+	xor eax,eax		;clear register
+    mov eax,Yval
+	sub eax,Zval
+	add eax,Xval
+
+	mov Rval,eax
+	call WriteInt
+	call Crlf
+
+	exit
+main ENDP
+END main

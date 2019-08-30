@@ -1,0 +1,32 @@
+.MODEL SMALL
+.STACK 64
+.DATA
+CHAR_A DB "A"
+
+.CODE
+MAIN PROC
+        MOV AX,@DATA
+        MOV DS,AX
+        ;------------START CODING
+        MOV AH,02H ;DISPLAY 1 BYTE
+
+        MOV DL,CHAR_A
+
+
+
+        INT 21H
+	;_____________________DISPLAY COMMA
+	
+	MOV DL,","
+	INT 21H
+	;----------CONVERTING
+	ADD CHAR_A,20H
+	;______DISPLAY LOWER CASE
+	MOV DL,CHAR_A
+	INT 21H
+
+        ;------------TERMINATE PROGRAM
+        MOV AH,4CH
+        INT 21H
+MAIN ENDP
+END MAIN
